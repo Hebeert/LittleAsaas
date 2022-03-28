@@ -1,0 +1,6 @@
+#Mon, 28 Mar 2022 16:13:59 -0300
+
+info.app.version=0.1
+info.app.name=LittleAsaas
+grails.env=development
+info.app.grailsVersion=5.1.4
