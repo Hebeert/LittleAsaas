@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+body {
+    background: #ffffff;
+    display: flex;
+    background-image: url(image/fundo.png);
+    background-repeat: no-repeat;
+    background-position: 430px;
+    background-position-x: center;
+    background-size: 900px;
+    font-family: Poppins;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    border: 0;
+}
+
+.container {
+    background-color: #ffffff;
+    border-radius: 30px;
+    border: 1px solid #3E445B;
+    width: 400px;
+    max-width: 100%;
+    margin: 0 auto;
+
+}
+
+.header {
+    padding: 10px 40px;
+    width: 30px;
+}
+
+.header h2 {
+    font-weight: 600;
+    color: #6C63FF;
+    font-size: 30px;
+}
+
+.form {
+    padding: 0 20px 10px;
+    
+    
+}
+
+.form-control {
+    margin-bottom: 15px;
+    padding-bottom: 30px;
+    position: relative;
+    margin:10px;
+    
+}
+
+.form-control label {
+    display: inline-block;
+    margin-bottom: 12px;
+    color: #828CAD;
+    
+}
+
+.form-control input {
+    border: 1px solid #3E445B;
+    border-radius: 10px;
+    outline: 0;
+
+    display: block;
+
+    font-size: auto;
+
+    width: 100%;
+    padding: 3px;
+}
+
+.form-control.success input{
+    border: 1px solid rgba(47, 255, 92, 0.424);
+}
+
+.form-control.error input{
+    border: 1px solid rgba(255, 0, 0, 0.308);
+}
+
+.form-control.success i .img-success{
+    visibility: visible;
+    
+}
+.form-control.error i .img-error{
+    visibility: visible;
+    
+}
+
+.form-control.error small{
+    visibility: visible;
+    
+}
+
+
+.form-control i {
+    position: absolute;
+    top: 30px;
+    right: 8px;
+    visibility: hidden;
+}
+
+.form-control small {
+    visibility: hidden;
+    position: absolute;
+    margin-top:-1px;
+    font-size: 10px;
+    color: red;
+    
+}
+
+.form button {
+    background-color: #6C63FF;
+    border-radius: 15px;
+    color: #fff;
+    padding: 15px;
+    font-size: 15px;
+    font-weight: 600;
+    width: 100%;
+    border: 0;
+
+    margin-top: 10px;
+
+    cursor: pointer;
+    
+}
+
+.form button:hover {
+    background-color: #584ff5;
+    transition: 0.3s;
+    
+}
