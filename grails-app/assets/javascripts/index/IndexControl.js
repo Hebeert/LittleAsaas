@@ -15,6 +15,8 @@ const confirmpassword = document.getElementById("confirmpassword")
 
 
 
+
+
 form.addEventListener("submit", (event) => {
     event.preventDefault();
     checkInputs();
@@ -23,9 +25,26 @@ form.addEventListener("submit", (event) => {
     }else{
         alert("Preencha os campos em branco")
     }
+    var lista_dados = [username.value, email.value, cpfcnpj.value, telefone.value, cep.value, 
+        endereco.value, numero.value, bairro.value, cidade.value, estado.value, password.value, confirmpassword.value];
+    console.log(lista_dados)    
+    
+    document.getElementById("username").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("cpfcnpj").value = "";
+    document.getElementById("telefone").value = "";
+    document.getElementById("cep").value = "";
+    document.getElementById("endereco").value = "";
+    document.getElementById("numero").value = "";
+    document.getElementById("bairro").value = "";
+    document.getElementById("cidade").value = "";
+    document.getElementById("estado").value = "";
+    document.getElementById("password").value = "";
+    document.getElementById("confirmpassword").value = "";  
     
 
 });
+
 
 
 
