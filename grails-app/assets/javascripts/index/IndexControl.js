@@ -1,16 +1,16 @@
-const form = document.getElementById("form")
-const username = document.getElementById("username")
-const email = document.getElementById("email")
-const cpfcnpj = document.getElementById("cpfcnpj")
-const telefone = document.getElementById("telefone")
-const cep = document.getElementById("cep")
-const endereco = document.getElementById("endereco")
-const numero = document.getElementById("numero")
-const bairro = document.getElementById("bairro")
-const cidade = document.getElementById("cidade")
-const estado = document.getElementById("estado")
-const password = document.getElementById("password")
-const confirmpassword = document.getElementById("confirmpassword")
+const form = document.getElementById("form");
+const username = document.getElementById("username");
+const email = document.getElementById("email");
+const cpfcnpj = document.getElementById("cpfcnpj");
+const telefone = document.getElementById("telefone");
+const cep = document.getElementById("cep");
+const endereco = document.getElementById("endereco");
+const numero = document.getElementById("numero");
+const bairro = document.getElementById("bairro");
+const cidade = document.getElementById("cidade");
+const estado = document.getElementById("estado");
+const password = document.getElementById("password");
+const confirmpassword = document.getElementById("confirmpassword");
 
 
 
