@@ -15,7 +15,7 @@ const confirmpassword = document.getElementById("confirmpassword");
 form.addEventListener("submit", (event) => {
     event.preventDefault();
     checkInputs();
-    if(checkInputs()===true){
+    if(checkInputs()){
         alert("Enviado com sucesso!!")
     }else{
         alert("Preencha os campos em branco")
@@ -170,6 +170,7 @@ function checkInputs(){
     }else{
         return false
     }
+    return
 
 }
 function errorValidation(input, message){
