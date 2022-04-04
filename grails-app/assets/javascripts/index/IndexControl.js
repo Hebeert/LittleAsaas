@@ -12,11 +12,6 @@ const estado = document.getElementById("estado");
 const password = document.getElementById("password");
 const confirmpassword = document.getElementById("confirmpassword");
 
-
-
-
-
-
 form.addEventListener("submit", (event) => {
     event.preventDefault();
     checkInputs();
@@ -25,29 +20,23 @@ form.addEventListener("submit", (event) => {
     }else{
         alert("Preencha os campos em branco")
     }
-    var lista_dados = [username.value, email.value, cpfcnpj.value, telefone.value, cep.value, 
-        endereco.value, numero.value, bairro.value, cidade.value, estado.value, password.value, confirmpassword.value];
+    var lista_dados = {'username':username.value, 'email':email.value, 'cpfcnpj':cpfcnpj.value, 'telefone':telefone.value, 'cep':cep.value, 'endereco':endereco.value,
+    'numero':numero.value, 'bairro':bairro.value, 'cidade':cidade.value, 'estado':estado.value, 'password':password.value, 'confirmpassword':confirmpassword.value};
     console.log(lista_dados)    
     
-    document.getElementById("username").value = "";
-    document.getElementById("email").value = "";
-    document.getElementById("cpfcnpj").value = "";
-    document.getElementById("telefone").value = "";
-    document.getElementById("cep").value = "";
-    document.getElementById("endereco").value = "";
-    document.getElementById("numero").value = "";
-    document.getElementById("bairro").value = "";
-    document.getElementById("cidade").value = "";
-    document.getElementById("estado").value = "";
-    document.getElementById("password").value = "";
-    document.getElementById("confirmpassword").value = "";  
-    
-
+    username.value = "";
+    email.value = "";
+    cpfcnpj.value = "";
+    telefone.value = "";
+    cep.value = "";
+    endereco.value = "";
+    numero.value = "";
+    bairro.value = "";
+    cidade.value = "";
+    estado.value = "";
+    password.value = "";
+    confirmpassword.value = "";  
 });
-
-
-
-
 
 function checkInputs(){
     const usernameValue = username.value.trim()
@@ -66,7 +55,7 @@ function checkInputs(){
     var usernameOk, emailOk, cpfcnpjOk, telefoneOk, cepOk, enderecoOk, numeroOk, bairroOk, cidadeOk, estadoOk, passwordOk, confirmpasswordOk
 
 
-    if(usernameValue === ""){
+    if(!usernameValue){
         errorValidation(username, "Preencha esse campo")
         usernameOk = false;
     }else{
@@ -74,7 +63,7 @@ function checkInputs(){
         usernameOk = true;
     }
 
-    if(emailValue === ""){
+    if(!emailValue){
         errorValidation(email, "Preencha esse campo")
         emailOk = false;
     }else{
@@ -82,7 +71,7 @@ function checkInputs(){
         emailOk = true;
     }
 
-    if(cpfcnpjValue === ""){
+    if(!cpfcnpjValue){
         errorValidation(cpfcnpj, "Preencha esse campo")
         cpfcnpjOk = false;
     }else if(cpfcnpjValue.length > 14){
@@ -93,7 +82,7 @@ function checkInputs(){
         cpfcnpjOk = true;
     }
 
-    if(telefoneValue === ""){
+    if(!telefoneValue){
         errorValidation(telefone, "Preencha esse campo")
         telefoneOk = false;
     }else{
@@ -101,7 +90,7 @@ function checkInputs(){
         telefoneOk = true;
     }
 
-    if(cepValue === ""){
+    if(!cepValue){
         errorValidation(cep, "Preencha esse campo")
         cepOk = false;
     }else{
@@ -109,7 +98,7 @@ function checkInputs(){
         cepOk = true;
     }
 
-    if(enderecoValue === ""){
+    if(!enderecoValue){
         errorValidation(endereco, "Preencha esse campo")
         enderecoOk = false;
     }else{
@@ -117,7 +106,7 @@ function checkInputs(){
         enderecoOk = true;
     }
 
-    if(numeroValue === ""){
+    if(!numeroValue){
         errorValidation(numero, "Preencha esse campo")
         numeroOk = false;
     }else{
@@ -125,7 +114,7 @@ function checkInputs(){
         numeroOk = true;
     }
 
-    if(bairroValue === ""){
+    if(!bairroValue){
         errorValidation(bairro, "Preencha esse campo")
         bairroOk = false;
     }else{
@@ -133,7 +122,7 @@ function checkInputs(){
         bairroOk = true;
     }
 
-    if(cidadeValue === ""){
+    if(!cidadeValue){
         errorValidation(cidade, "Preencha esse campo")
         cidadeOk = false;
     }else{
@@ -141,7 +130,7 @@ function checkInputs(){
         cidadeOk = true;
     }
 
-    if(estadoValue === ""){
+    if(!estadoValue){
         errorValidation(estado, "Preencha esse campo")
         estadoOk = false;
     }else if(estadoValue.length > 2){
@@ -152,7 +141,7 @@ function checkInputs(){
         estadoOk = true;
     }
 
-    if(passwordValue === ""){
+    if(!passwordValue){
         errorValidation(password, "Preencha esse campo")
         passwordOk = false;
     }else if(passwordValue.length < 8){
@@ -163,7 +152,7 @@ function checkInputs(){
         passwordOk = true;
     }
 
-    if(confirmpasswordValue === ""){
+    if(!confirmpasswordValue){
         errorValidation(confirmpassword, "Preencha esse campo")
         confirmpasswordOk = false;
     }else if(passwordValue !== confirmpasswordValue){
@@ -174,9 +163,9 @@ function checkInputs(){
         confirmpasswordOk = true;
     }
 
-    if(usernameOk === true && emailOk === true && cpfcnpjOk && telefoneOk === true && cepOk === true && 
-        enderecoOk === true && numeroOk === true && bairroOk === true && cidadeOk === true && 
-        estadoOk === true && passwordOk === true && confirmpasswordOk){
+    if(usernameOk && emailOk && cpfcnpjOk && telefoneOk && cepOk && 
+        enderecoOk && numeroOk && bairroOk && cidadeOk && 
+        estadoOk && passwordOk  && confirmpasswordOk){
         return true
     }else{
         return false
@@ -203,8 +192,7 @@ var preencherFormulario = (endereco) =>{
     document.getElementById("estado").value = endereco.uf;
   }
   
-  
-  var pesquisarCep = async() => {
+var pesquisarCep = async() => {
     var cep = document.getElementById("cep").value;
     var url = `http://viacep.com.br/ws/${cep}/json/`;
     var dados = await fetch(url);
