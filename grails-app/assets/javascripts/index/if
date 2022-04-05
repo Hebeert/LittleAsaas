@@ -1,0 +1,166 @@
+if(!usernameValue){
+        errorValidation(username, "Preencha esse campo")
+        usernameOk = false;
+    }else{
+        successValidation(username)
+        usernameOk = true;
+    }
+
+    if(!emailValue){
+        errorValidation(email, "Preencha esse campo")
+        emailOk = false;
+    }else{
+        successValidation(email)
+        emailOk = true;
+    }
+
+    if(!cpfcnpjValue){
+        errorValidation(cpfcnpj, "Preencha esse campo")
+        cpfcnpjOk = false;
+    }else if(cpfcnpjValue.length > 14){
+        errorValidation(cpfcnpj, "Esse campo deve ter no máximo 14 caracteres")
+        cpfcnpjOk = false;
+    }else{
+        successValidation(cpfcnpj)
+        cpfcnpjOk = true;
+    }
+
+    if(!telefoneValue){
+        errorValidation(telefone, "Preencha esse campo")
+        telefoneOk = false;
+    }else{
+        successValidation(telefone)
+        telefoneOk = true;
+    }
+
+    if(!cepValue){
+        errorValidation(cep, "Preencha esse campo")
+        cepOk = false;
+    }else{
+        successValidation(cep)
+        cepOk = true;
+    }
+
+    if(!enderecoValue){
+        errorValidation(endereco, "Preencha esse campo")
+        enderecoOk = false;
+    }else{
+        successValidation(endereco)
+        enderecoOk = true;
+    }
+
+    if(!numeroValue){
+        errorValidation(numero, "Preencha esse campo")
+        numeroOk = false;
+    }else{
+        successValidation(numero)
+        numeroOk = true;
+    }
+
+    if(!bairroValue){
+        errorValidation(bairro, "Preencha esse campo")
+        bairroOk = false;
+    }else{
+        successValidation(bairro)
+        bairroOk = true;
+    }
+
+    if(!cidadeValue){
+        errorValidation(cidade, "Preencha esse campo")
+        cidadeOk = false;
+    }else{
+        successValidation(cidade)
+        cidadeOk = true;
+    }
+
+    if(!estadoValue){
+        errorValidation(estado, "Preencha esse campo")
+        estadoOk = false;
+    }else if(estadoValue.length > 2){
+        errorValidation(estado, "Apenas 2 caracteres")
+        estadoOk = false;
+    }else{
+        successValidation(estado)
+        estadoOk = true;
+    }
+
+    if(!passwordValue){
+        errorValidation(password, "Preencha esse campo")
+        passwordOk = false;
+    }else if(passwordValue.length < 8){
+        errorValidation(password, "A senha deve ter no mínimo 8 caracteres")
+        passwordOk = false;
+    }else{
+        successValidation(password)
+        passwordOk = true;
+    }
+
+    if(!confirmpasswordValue){
+        errorValidation(confirmpassword, "Preencha esse campo")
+        confirmpasswordOk = false;
+    }else if(passwordValue !== confirmpasswordValue){
+        errorValidation(confirmpassword, "As senhas não se correspondem")
+        confirmpasswordOk = false;
+    }else{
+        successValidation(confirmpassword)
+        confirmpasswordOk = true;
+    }
+
+    if(usernameOk && emailOk && cpfcnpjOk && telefoneOk && cepOk && 
+        enderecoOk && numeroOk && bairroOk && cidadeOk && 
+        estadoOk && passwordOk  && confirmpasswordOk){
+        return true
+    }else{
+        return false
+    }
+    return
+
+    var usernameOk, emailOk, cpfcnpjOk, telefoneOk, cepOk, enderecoOk, numeroOk, bairroOk, cidadeOk, estadoOk, passwordOk, confirmpasswordOk
+
+
+
+        var validationOK
+
+    if(usernameValue){
+        successValidation(username)
+        validationOk = true;
+    } else if(emailValue){
+        successValidation(email)
+        validationOk = true;
+    } else if(cpfcnpjValue){
+        if(cpfcnpjValue.length > 14){
+            errorValidation(cpfcnpj, "Esse campo deve ter no máximo 14 caracteres")}
+        successValidation(cpfcnpj)
+        validationOk = true;
+    } else if(telefoneValue){
+        successValidation(telefone)
+        validationOk = true;
+    } else if(cepValue){
+        successValidation(cep)
+        validationOk = true;
+    } else if(enderecoValue){
+        successValidation(endereco)
+        validationOk = true;
+    } else if(numeroValue){
+        successValidation(numero)
+        validationOk = true;
+    } else if(bairroValue){
+        successValidation(bairro)
+        validationOk = true;
+    } else if(cidadeValue){
+        successValidation(cidade)
+        validationOk = true;
+    } else if(estadoValue){
+        successValidation(estado)
+        validationOk = true;
+    } else if(passwordValue){
+        successValidation(password)
+        validationOk = true;
+    } else if(confirmpasswordValue){
+        successValidation(confirmpassword)
+        validationOk = true;
+    }else {
+        errorValidation("Preencha esse campo")
+        validationOk = false;
+    }
+
