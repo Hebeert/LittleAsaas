@@ -4,6 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
 }
 
 body {
@@ -96,7 +97,7 @@ body {
     visibility: hidden;
 }
 
-.form-control small {
+.form-control .error-note {
     visibility: hidden;
     position: absolute;
     margin-top:-1px;

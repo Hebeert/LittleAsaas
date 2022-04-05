@@ -13,7 +13,7 @@
             <h2>Faça seu cadastro</h2>
          </div>
 
-         <form class="form" id="form">
+         <form class="form" id="customer-form">
              <div class="form-control">
                  <label for="usarname"></label>Nome</label>
                  <input type="text" id="username">
@@ -108,12 +108,12 @@
                 <input type="password" id="confirmpassword">
                 <i><asset:image class="img-success" src="success-icon.svg"/></i>
                  <i><asset:image class="img-error" src="error-icon.svg"/></i>
-                <small>Error message</small>
+                <small class="error-note js-error-note" />
             </div>
             <input type="checkbox" name="agreement" id="agreement">
             <label for="agreement" id="agreement-label">Eu li e aceito os <a href="https://ajuda.asaas.com/pt-BR/articles/102021-termos-e-condicoes-de-uso">termos de uso</a></label>
 
-            <button type="submit" id="botao">Cadastrar</button>
+            <button type="submit">Cadastrar</button>
         </form>
 
          <asset:javascript src="index/IndexControl.js"/>

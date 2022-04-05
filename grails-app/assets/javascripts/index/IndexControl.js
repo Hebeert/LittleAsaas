@@ -1,4 +1,4 @@
-const form = document.getElementById("form");
+const formReference = document.getElementById("customer-form");
 const username = document.getElementById("username");
 const email = document.getElementById("email");
 const cpfcnpj = document.getElementById("cpfcnpj");
@@ -12,31 +12,23 @@ const estado = document.getElementById("estado");
 const password = document.getElementById("password");
 const confirmpassword = document.getElementById("confirmpassword");
 
-form.addEventListener("submit", (event) => {
+formReference.addEventListener("submit", (event) => {
     event.preventDefault();
-    checkInputs();
+    debugger;
     if(checkInputs()){
         alert("Enviado com sucesso!!")
+        cleanForm();
     }else{
         alert("Preencha os campos em branco")
     }
     var lista_dados = {'username':username.value, 'email':email.value, 'cpfcnpj':cpfcnpj.value, 'telefone':telefone.value, 'cep':cep.value, 'endereco':endereco.value,
     'numero':numero.value, 'bairro':bairro.value, 'cidade':cidade.value, 'estado':estado.value, 'password':password.value, 'confirmpassword':confirmpassword.value};
     console.log(lista_dados)    
+    });
     
-    username.value = "";
-    email.value = "";
-    cpfcnpj.value = "";
-    telefone.value = "";
-    cep.value = "";
-    endereco.value = "";
-    numero.value = "";
-    bairro.value = "";
-    cidade.value = "";
-    estado.value = "";
-    password.value = "";
-    confirmpassword.value = "";  
-});
+function cleanForm(){
+    formReference.reset(); 
+}
 
 function checkInputs(){
     const usernameValue = username.value.trim()
@@ -52,139 +44,138 @@ function checkInputs(){
     const passwordValue = password.value.trim()
     const confirmpasswordValue = confirmpassword.value.trim()
 
-    var usernameOk, emailOk, cpfcnpjOk, telefoneOk, cepOk, enderecoOk, numeroOk, bairroOk, cidadeOk, estadoOk, passwordOk, confirmpasswordOk
-
-
+var validationOk
     if(!usernameValue){
         errorValidation(username, "Preencha esse campo")
-        usernameOk = false;
+        validationOk = false;
     }else{
         successValidation(username)
-        usernameOk = true;
+        validationOk = true;
     }
 
     if(!emailValue){
         errorValidation(email, "Preencha esse campo")
-        emailOk = false;
+        validationOk = false;
     }else{
         successValidation(email)
-        emailOk = true;
+        validationOk = true;
     }
 
     if(!cpfcnpjValue){
         errorValidation(cpfcnpj, "Preencha esse campo")
-        cpfcnpjOk = false;
+        validationOk = false;
     }else if(cpfcnpjValue.length > 14){
         errorValidation(cpfcnpj, "Esse campo deve ter no máximo 14 caracteres")
-        cpfcnpjOk = false;
+        validationOk = false;
     }else{
         successValidation(cpfcnpj)
-        cpfcnpjOk = true;
+        validationOk = true;
     }
 
     if(!telefoneValue){
         errorValidation(telefone, "Preencha esse campo")
-        telefoneOk = false;
+        validationOk = false;
     }else{
         successValidation(telefone)
-        telefoneOk = true;
+        validationOk = true;
     }
 
     if(!cepValue){
         errorValidation(cep, "Preencha esse campo")
-        cepOk = false;
+        validationOk = false;
     }else{
         successValidation(cep)
-        cepOk = true;
+        validationOk = true;
     }
 
     if(!enderecoValue){
         errorValidation(endereco, "Preencha esse campo")
-        enderecoOk = false;
+        validationOk = false;
     }else{
         successValidation(endereco)
-        enderecoOk = true;
+        validationOk = true;
     }
 
     if(!numeroValue){
         errorValidation(numero, "Preencha esse campo")
-        numeroOk = false;
+        validationOk = false;
     }else{
         successValidation(numero)
-        numeroOk = true;
+        validationOk = true;
     }
 
     if(!bairroValue){
         errorValidation(bairro, "Preencha esse campo")
-        bairroOk = false;
+        validationOk = false;
     }else{
         successValidation(bairro)
-        bairroOk = true;
+        validationOk = true;
     }
 
     if(!cidadeValue){
         errorValidation(cidade, "Preencha esse campo")
-        cidadeOk = false;
+        validationOk = false;
     }else{
         successValidation(cidade)
-        cidadeOk = true;
+        validationOk = true;
     }
 
     if(!estadoValue){
         errorValidation(estado, "Preencha esse campo")
-        estadoOk = false;
+        validationOk = false;
     }else if(estadoValue.length > 2){
         errorValidation(estado, "Apenas 2 caracteres")
-        estadoOk = false;
+        validationOk = false;
     }else{
         successValidation(estado)
-        estadoOk = true;
+        validationOk = true;
     }
 
     if(!passwordValue){
         errorValidation(password, "Preencha esse campo")
-        passwordOk = false;
+        validationOk = false;
     }else if(passwordValue.length < 8){
         errorValidation(password, "A senha deve ter no mínimo 8 caracteres")
-        passwordOk = false;
+        validationOk = false;
     }else{
         successValidation(password)
-        passwordOk = true;
+        validationOk = true;
     }
 
     if(!confirmpasswordValue){
         errorValidation(confirmpassword, "Preencha esse campo")
-        confirmpasswordOk = false;
+        validationOk = false;
     }else if(passwordValue !== confirmpasswordValue){
         errorValidation(confirmpassword, "As senhas não se correspondem")
-        confirmpasswordOk = false;
+        validationOk = false;
     }else{
         successValidation(confirmpassword)
-        confirmpasswordOk = true;
+        validationOk = true;
     }
 
-    if(usernameOk && emailOk && cpfcnpjOk && telefoneOk && cepOk && 
-        enderecoOk && numeroOk && bairroOk && cidadeOk && 
-        estadoOk && passwordOk  && confirmpasswordOk){
+    if(validationOk){
         return true
     }else{
         return false
     }
-    return
+
 
 }
-function errorValidation(input, message){
+function setInputAsError(input, message){
     const formControl = input.parentElement;
-    const small = formControl.querySelector("small");
-    small.innerText = message
-    formControl.className = "form-control error"
+    const errorMessageContainer = formControl.querySelector(".js-error-note");
+    errorMessageContainer.innerText = message
+    formControl.classList.remove("success").add("error");
 }
+
 
 function successValidation(input){
     const formControl = input.parentElement;
-    const small = formControl.querySelector("small")
-    formControl.className = "form-control success"
+    const errorMessageContainer = formControl.querySelector(".js-error-note");
+    errorMessageContainer.innerText = "";
+    formControl.classList.remove("error").add("success");
 }
+
 
 var preencherFormulario = (endereco) =>{
     document.getElementById("endereco").value = endereco.logradouro;
@@ -202,4 +193,4 @@ var pesquisarCep = async() => {
   }
   
   document.getElementById("cep")
-    .addEventListener("focusout", pesquisarCep);
+    .addEventListener("focusout", pesquisarCep)

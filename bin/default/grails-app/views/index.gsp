@@ -113,32 +113,11 @@
             <input type="checkbox" name="agreement" id="agreement">
             <label for="agreement" id="agreement-label">Eu li e aceito os <a href="https://ajuda.asaas.com/pt-BR/articles/102021-termos-e-condicoes-de-uso">termos de uso</a></label>
 
-            <button type="submit" id="botao">Cadastrar</button>
-
-
-
-
-         </form>
+            <button type="submit">Cadastrar</button>
+        </form>
 
          <asset:javascript src="index/IndexControl.js"/>
-
     
-
-    
-
-
-
-
-
-
-
-
-
-
-
     </div>
-    
-
-
 </body>
 </html>
