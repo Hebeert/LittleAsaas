@@ -1,190 +1,171 @@
-const form = document.getElementById("form");
-const username = document.getElementById("username");
-const email = document.getElementById("email");
-const cpfcnpj = document.getElementById("cpfcnpj");
-const telefone = document.getElementById("telefone");
-const cep = document.getElementById("cep");
-const endereco = document.getElementById("endereco");
-const numero = document.getElementById("numero");
-const bairro = document.getElementById("bairro");
-const cidade = document.getElementById("cidade");
-const estado = document.getElementById("estado");
-const password = document.getElementById("password");
-const confirmpassword = document.getElementById("confirmpassword");
+const formReference = document.getElementById("customer-form");
+const usernameInputReference = document.getElementById("username");
+const emailInputReference = document.getElementById("email");
+const cpfcnpjInputReference = document.getElementById("cpfcnpj"); 
+const telefoneInputReference = document.getElementById("telefone");
+const cepInputReference = document.getElementById("cep");
+const enderecoInputReference = document.getElementById("endereco");
+const numeroInputReference = document.getElementById("numero");
+const bairroInputReference = document.getElementById("bairro");
+const cidadeInputReference = document.getElementById("cidade");
+const estadoInputReference = document.getElementById("estado");
+const passwordInputReference = document.getElementById("password");   
+const confirmpasswordInputReference = document.getElementById("confirmpassword");
 
-form.addEventListener("submit", (event) => {
+
+formReference.addEventListener("submit", (event) => {
     event.preventDefault();
-    checkInputs();
-    if(checkInputs()){
+    var customer = {};
+    var form = document.querySelector("form")
+    var data = new FormData(form)
+    data.forEach(function(value, key){
+        customer[key] = value;
+    });
+    console.log(customer)
+    
+    
+    if(checkInputs(customer)){
         alert("Enviado com sucesso!!")
+        
     }else{
         alert("Preencha os campos em branco")
     }
-    var lista_dados = {'username':username.value, 'email':email.value, 'cpfcnpj':cpfcnpj.value, 'telefone':telefone.value, 'cep':cep.value, 'endereco':endereco.value,
-    'numero':numero.value, 'bairro':bairro.value, 'cidade':cidade.value, 'estado':estado.value, 'password':password.value, 'confirmpassword':confirmpassword.value};
-    console.log(lista_dados)    
+   formReference.reset();
     
-    username.value = "";
-    email.value = "";
-    cpfcnpj.value = "";
-    telefone.value = "";
-    cep.value = "";
-    endereco.value = "";
-    numero.value = "";
-    bairro.value = "";
-    cidade.value = "";
-    estado.value = "";
-    password.value = "";
-    confirmpassword.value = "";  
-});
+    
+function checkInputs(customer){
 
-function checkInputs(){
-    const usernameValue = username.value.trim()
-    const emailValue = email.value.trim()
-    const cpfcnpjValue = cpfcnpj.value.trim()
-    const telefoneValue = telefone.value.trim()
-    const cepValue = cep.value.trim()
-    const enderecoValue = endereco.value.trim()
-    const numeroValue = numero.value.trim()
-    const bairroValue = bairro.value.trim()
-    const cidadeValue = cidade.value.trim()
-    const estadoValue = estado.value.trim()
-    const passwordValue = password.value.trim()
-    const confirmpasswordValue = confirmpassword.value.trim()
-
-    var usernameOk, emailOk, cpfcnpjOk, telefoneOk, cepOk, enderecoOk, numeroOk, bairroOk, cidadeOk, estadoOk, passwordOk, confirmpasswordOk
-
-
-    if(!usernameValue){
-        errorValidation(username, "Preencha esse campo")
-        usernameOk = false;
+var validationOk
+    if(!customer.username.trim()){
+        setInputAsError(usernameInputReference, "Preencha esse campo")
+        validationOk = false;
     }else{
-        successValidation(username)
-        usernameOk = true;
+        successValidation(usernameInputReference)
+        validationOk = true;
     }
 
-    if(!emailValue){
-        errorValidation(email, "Preencha esse campo")
-        emailOk = false;
+    if(!customer.email.trim()){
+        setInputAsError(emailInputReference, "Preencha esse campo")
+        validationOk = false;
     }else{
-        successValidation(email)
-        emailOk = true;
+        successValidation(emailInputReference)
+        validationOk = true;
     }
 
-    if(!cpfcnpjValue){
-        errorValidation(cpfcnpj, "Preencha esse campo")
-        cpfcnpjOk = false;
-    }else if(cpfcnpjValue.length > 14){
-        errorValidation(cpfcnpj, "Esse campo deve ter no máximo 14 caracteres")
-        cpfcnpjOk = false;
+    if(!customer.cpfcnpj.trim()){
+        setInputAsError(cpfcnpjInputReference, "Preencha esse campo")
+        validationOk = false;
+    }else if(cpfcnpjInputReference.length > 14){
+        setInputAsError(cpfcnpjInputReference, "Esse campo deve ter no máximo 14 caracteres")
+        validationOk = false;
     }else{
-        successValidation(cpfcnpj)
-        cpfcnpjOk = true;
+        successValidation(cpfcnpjInputReference)
+        validationOk = true;
     }
 
-    if(!telefoneValue){
-        errorValidation(telefone, "Preencha esse campo")
-        telefoneOk = false;
+    if(!customer.telefone.trim()){
+        setInputAsError(telefoneInputReference, "Preencha esse campo")
+        validationOk = false;
     }else{
-        successValidation(telefone)
-        telefoneOk = true;
+        successValidation(telefoneInputReference)
+        validationOk = true;
     }
 
-    if(!cepValue){
-        errorValidation(cep, "Preencha esse campo")
-        cepOk = false;
+    if(!customer.cep.trim()){
+        setInputAsError(cepInputReference, "Preencha esse campo")
+        validationOk = false;
     }else{
-        successValidation(cep)
-        cepOk = true;
+        successValidation(cepInputReference)
+        validationOk = true;
     }
 
-    if(!enderecoValue){
-        errorValidation(endereco, "Preencha esse campo")
-        enderecoOk = false;
+    if(!customer.endereco.trim()){
+        setInputAsError(enderecoInputReference, "Preencha esse campo")
+        validationOk = false;
     }else{
-        successValidation(endereco)
-        enderecoOk = true;
+        successValidation(enderecoInputReference)
+        validationOk = true;
     }
 
-    if(!numeroValue){
-        errorValidation(numero, "Preencha esse campo")
-        numeroOk = false;
+    if(!customer.numero.trim()){
+        setInputAsError(numeroInputReference, "Preencha esse campo")
+        validationOk = false;
     }else{
-        successValidation(numero)
-        numeroOk = true;
+        successValidation(numeroInputReference)
+        validationOk = true;
     }
 
-    if(!bairroValue){
-        errorValidation(bairro, "Preencha esse campo")
-        bairroOk = false;
+    if(!customer.bairro.trim()){
+        setInputAsError(bairroInputReference, "Preencha esse campo")
+        validationOk = false;
     }else{
-        successValidation(bairro)
-        bairroOk = true;
+        successValidation(bairroInputReference)
+        validationOk = true;
     }
 
-    if(!cidadeValue){
-        errorValidation(cidade, "Preencha esse campo")
-        cidadeOk = false;
+    if(!customer.cidade.trim()){
+        setInputAsError(cidadeInputReference, "Preencha esse campo")
+        validationOk = false;
     }else{
-        successValidation(cidade)
-        cidadeOk = true;
+        successValidation(cidadeInputReference)
+        validationOk = true;
     }
 
-    if(!estadoValue){
-        errorValidation(estado, "Preencha esse campo")
-        estadoOk = false;
-    }else if(estadoValue.length > 2){
-        errorValidation(estado, "Apenas 2 caracteres")
-        estadoOk = false;
+    if(!customer.estado.trim()){
+        setInputAsError(estadoInputReference, "Preencha esse campo")
+        validationOk = false;
+    }else if(estadoInputReference.length > 2){
+        setInputAsError(estadoInputReference, "Apenas 2 caracteres")
+        validationOk = false;
     }else{
-        successValidation(estado)
-        estadoOk = true;
+        successValidation(estadoInputReference)
+        validationOk = true;
     }
 
-    if(!passwordValue){
-        errorValidation(password, "Preencha esse campo")
-        passwordOk = false;
-    }else if(passwordValue.length < 8){
-        errorValidation(password, "A senha deve ter no mínimo 8 caracteres")
-        passwordOk = false;
+    if(!customer.password.trim()){
+        setInputAsError(passwordInputReference, "Preencha esse campo")
+        validationOk = false;
+    }else if(passwordInputReference.length < 8){
+        setInputAsError(passwordInputReference, "A senha deve ter no mínimo 8 caracteres")
+        validationOk = false;
     }else{
-        successValidation(password)
-        passwordOk = true;
+        successValidation(passwordInputReference)
+        validationOk = true;
     }
 
-    if(!confirmpasswordValue){
-        errorValidation(confirmpassword, "Preencha esse campo")
-        confirmpasswordOk = false;
-    }else if(passwordValue !== confirmpasswordValue){
-        errorValidation(confirmpassword, "As senhas não se correspondem")
-        confirmpasswordOk = false;
+    if(!customer.confirmpassword.trim()){
+        setInputAsError(confirmpasswordInputReference, "Preencha esse campo")
+        validationOk = false;
+    //}else if(passwordInputReference !== confirmpasswordInputReference){
+       // setInputAsError(confirmpasswordInputReference, "As senhas não se correspondem")
+        //validationOk = false;
     }else{
-        successValidation(confirmpassword)
-        confirmpasswordOk = true;
+        successValidation(confirmpasswordInputReference)
+        validationOk = true;
     }
 
-    if(usernameOk && emailOk && cpfcnpjOk && telefoneOk && cepOk && 
-        enderecoOk && numeroOk && bairroOk && cidadeOk && 
-        estadoOk && passwordOk  && confirmpasswordOk){
+    if(validationOk){
         return true
     }else{
         return false
     }
-    return
-
+    
 }
-function errorValidation(input, message){
+function setInputAsError(input, message){
     const formControl = input.parentElement;
-    const small = formControl.querySelector("small");
-    small.innerText = message
-    formControl.className = "form-control error"
+    const errorMessageContainer = formControl.querySelector(".js-error-note");
+    errorMessageContainer.innerText = message
+    $(formControl).addClass("error").removeClass("success");
 }
+
 
 function successValidation(input){
     const formControl = input.parentElement;
-    const small = formControl.querySelector("small")
-    formControl.className = "form-control success"
+    const errorMessageContainer = formControl.querySelector(".js-error-note");
+    errorMessageContainer.innerText = "";
+    $(formControl).addClass("success").removeClass("error")
 }
+
 
 var preencherFormulario = (endereco) =>{
     document.getElementById("endereco").value = endereco.logradouro;
@@ -202,4 +183,5 @@ var pesquisarCep = async() => {
   }
   
   document.getElementById("cep")
-    .addEventListener("focusout", pesquisarCep);
+    .addEventListener("focusout", pesquisarCep)
+})
