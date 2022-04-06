@@ -1,6 +1,6 @@
 package com.littleasaas.domain
 
-class Custumer {
+class Customer {
     Integer cpfCnpj
     String name
     String andress
@@ -14,6 +14,7 @@ class Custumer {
     Integer phone
 
     static constraints = {
+    gender inList:["M","F"]
 
     }
 }
