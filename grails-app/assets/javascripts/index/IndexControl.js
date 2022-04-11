@@ -12,36 +12,32 @@ const estadoInputReference = document.getElementById("estado");
 const passwordInputReference = document.getElementById("password");   
 const confirmPasswordInputReference = document.getElementById("confirmPassword");
 
-
 formReference.addEventListener("submit", (event) => {
     event.preventDefault();
     var customer = {};
-    var form = document.querySelector("form")
-    var data = new FormData(form)
+    var form = document.querySelector("form");
+    var data = new FormData(form);
     data.forEach(function(value, key){
         customer[key] = value;
     });
     console.log(customer)
-    
-    
     if(checkInputs(customer)){
-        alert("Enviado com sucesso!!")
-        
-    }else{
-        alert("Preencha os campos em branco")
+        alert("Enviado com sucesso!!");
+        formReference.reset();
+        }else{  
+        alert("Preencha os campos em branco");
     }
-   formReference.reset();
-    
-    
-function checkInputs(customer){
+     
 
-var validationOk
+function checkInputs(customer){
+    var validationOk;
     if(!customer.username.trim()){
         setInputAsError(usernameInputReference, "Preencha esse campo")
         validationOk = false;
     }else{
         successValidation(usernameInputReference)
         validationOk = true;
+        return;
     }
 
     if(!customer.email.trim()){
@@ -136,25 +132,22 @@ var validationOk
     if(!customer.confirmPassword.trim()){
         setInputAsError(confirmPasswordInputReference, "Preencha esse campo")
         validationOk = false;
-    //}else if(passwordInputReference !== confirmpasswordInputReference){
-       // setInputAsError(confirmpasswordInputReference, "As senhas não se correspondem")
-        //validationOk = false;
     }else{
         successValidation(confirmPasswordInputReference)
         validationOk = true;
     }
 
     if(validationOk){
-        return true
+        return true;
     }else{
-        return false
+        return;
     }
     
 }
 function setInputAsError(input, message){
     const formControl = input.parentElement;
     const errorMessageContainer = formControl.querySelector(".js-error-note");
-    errorMessageContainer.innerText = message
+    errorMessageContainer.innerText = message;
     $(formControl).addClass("error").removeClass("success");
 }
 
@@ -163,7 +156,7 @@ function successValidation(input){
     const formControl = input.parentElement;
     const errorMessageContainer = formControl.querySelector(".js-error-note");
     errorMessageContainer.innerText = "";
-    $(formControl).addClass("success").removeClass("error")
+    $(formControl).addClass("success").removeClass("error");
 }
 
 
@@ -179,9 +172,9 @@ var pesquisarCep = async() => {
     var url = `http://viacep.com.br/ws/${cep}/json/`;
     var dados = await fetch(url);
     var endereco = await dados.json();
-    preencherFormulario(endereco)
+    preencherFormulario(endereco);
   }
   
   document.getElementById("cep")
-    .addEventListener("focusout", pesquisarCep)
+    .addEventListener("focusout", pesquisarCep);
 })
